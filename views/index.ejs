@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rajat Gupta">
+    <title>Jokeify App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" 
+        crossorigin="anonymous"/>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #212534;
+            color: white;
+        }
+
+        main {
+            text-align: center;
+            height: 60%;
+            margin-top: 4rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        #type {
+            height: 2rem;
+            width: 15rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            background-color: #4e00c2;
+            cursor: pointer;
+            color: white;
+            margin-right: 2rem;
+        }
+
+        #type:hover {
+            background-color: #212534;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .formSubmit {
+            height: 2rem;
+            width: 10rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background-color: #4e00c2;
+            border: none;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .formSubmit:hover {
+            background-color: #212534;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .card {
+            margin: 5rem auto;
+            background-color: #4e00c2;
+            width: fit-content;
+            padding: 4rem;
+            border-radius: 20px;
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            font-size: 1.3rem;
+            justify-content: space-around;
+        }
+
+        footer > img {
+            height: 60px;
+            width: 60px;
+            cursor: pointer;
+        }
+
+        footer > img:hover {
+            content: url("/images/logo2.png");
+        }
+
+        a > i:hover {
+            color: #4e00c2;
+            transform: scale(1.5);
+            transition: transform 0.5s;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Random Joke Generator App</h1>
+        <form action="/" method="post" id="jokeForm">
+            <select name="jokeType" id="type">
+                <option value="Any" data-display="Select">Select Type of Joke</option>
+                <option value="Any">Random Type</option>
+                <option value="Programming">Programming</option>
+                <option value="Miscellaneous">Miscellaneous</option>
+                <option value="Dark">Dark</option>
+                <option value="Pun">Pun</option>
+                <option value="Spooky">Spooky</option>
+                <option value="Christmas">Christmas</option>
+            </select>
+            <input type="submit" value="Get a Joke" class="formSubmit">
+        </form>
+        <div id="jokeCard" class="card">
+            <% if (locals.joke) { %>
+                <h2 id="joke">
+                    <%= locals.joke %>
+                </h2>
+            <% } %>
+
+            <% if (locals.error) { %>
+                <div id="tag-error">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+    </main>
+    <footer>
+        <img src="/images/logo.png" alt="logo">
+        &copy; 2023 Rajat Gupta
+        <a href="mailto:rajatgupta0607@gmail.com" target="_blank">
+            <i class="fas fa-envelope hover"></i>
+        </a>
+        <a href="https://github.com/NightShift0607" target="_blank">
+            <i class="fab fa-github hover"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/rajat-gupta-716a5b28b/" target="_blank">
+            <i class="fab fa-linkedin hover"></i>
+        </a>
+    </footer>
+</body>
+</html>
