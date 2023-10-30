@@ -34,6 +34,6 @@ app.post("/", async (req,res) => {
 
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server running on port: ${port}`);
 });
